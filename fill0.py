@@ -10,6 +10,19 @@ import numpy as np
 import streamlit as st
 import io
 
+st.write("DB username:", st.secrets["DB_USERNAME"])
+st.write("DB password:", st.secrets["DB_PASSWORD"])
+st.write("KEY:", st.secrets["1234"])
+
+# And the root-level secrets are also accessible as environment variables:
+
+import os
+
+st.write(
+    "Has environment variables been set:",
+    os.environ["DB_USERNAME"] == st.secrets["DB_USERNAME"],
+)
+
 def main():
     st.title("FILL NaN with 0")
 
