@@ -14,7 +14,9 @@ import io
 host = st.secrets.db_credentials.host
 user = st.secrets.db_credentials.user
 password = st.secrets.db_credentials.password
-    
+
+df.columns = df.columns.astype(str)
+
 def fill_nan_with_zero(df):
     return df.fillna(0)
 
