@@ -32,13 +32,12 @@ def main():
         st.download_button("Download filled DataFrame as Excel", data=output_buffer.getvalue(), file_name="output.xlsx", mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet")
 
     # Accessing secrets
-    st.write("DB username:", st.secrets["db_username"])
-    st.write("DB password:", st.secrets["db_password"])
-    st.write("My cool secrets:", st.secrets["my_cool_secrets"]["things_i_like"])
-
+    st.write("DB username:", st.secrets["user"])
+    st.write("DB password:", st.secrets["password"])
+    st.write("My cool secrets:", st.secrets["host"])
     # And the root-level secrets are also accessible as environment variables:
     import os
-    st.write("Has environment variables been set:", os.environ["db_username"] == st.secrets["db_username"])
+    st.write("Has environment variables been set:", os.environ["user"] == st.secrets["password"])
 
 if __name__ == "__main__":
     main()
