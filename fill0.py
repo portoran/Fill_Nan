@@ -15,8 +15,6 @@ host = st.secrets.db_credentials.host
 user = st.secrets.db_credentials.user
 password = st.secrets.db_credentials.password
 
-df.columns = df.columns.astype(str)
-
 def fill_nan_with_zero(df):
     return df.fillna(0)
 
@@ -28,6 +26,10 @@ def main():
 
     if uploaded_file is not None:
         df = pd.read_excel(uploaded_file)
+
+        # Ensure all column names are strings
+        df.columns = df.columns.astype(str)
+
         st.dataframe(df)
 
         # Fill NaN values with 0
@@ -40,5 +42,6 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
 
